@@ -1,0 +1,87 @@
+
+\begin{frame}[fragile]
+    \frametitle{Datatyper}
+
+    Variabler har bestemte typer, men kan byttes med tilordningsoperatoren. 
+
+\begin{python}
+a = "hei" # type er str
+a = 1 # type er int
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Datatyper}
+
+    Noen aritmetiske operatorer fungerer for andre typer enn tall, men ikke alltid. 
+
+\begin{python}
+liste1 = [1, 2, 3]
+liste2 = [4, 5]
+liste3 = liste1 + liste2
+
+liste4 = liste3 * 2
+\end{python}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Datatyper}
+
+    Eksempler på datatyper: 
+
+    \begin{itemize}
+        \item int: heltall, 1023913213, 0, -1
+        \item float: flyttall, 0.1, 1.2e-10, 3.1415e6
+        \item str: streng, "hei", "sacasdcasdc"
+        \item list: liste, [1, 2, 3], ["hei", 1.3e2]
+        \item tuple: tupler, (1, 2, 3), ("hei", 1.3e2)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Datatyper}
+
+    Funksjoner for å konvertere mellom datatyper. De gjør forskjellige ting for forskjellig input-typer, og fungerer ikke for alle. 
+
+    \begin{table}[]
+        \begin{tabular}{|l|l|l|}
+        \hline
+        Funksjon & Eksempel           & Resultat    \\ \hline
+        bin()    & bin(92)            & '0b1011100' \\ \hline
+        bool()   & bool(12), bool(0)  & True, False \\ \hline
+        chr()    & chr(97)            & 'a'         \\ \hline
+        ord()    & ord('a')           & 97          \\ \hline
+        float()  & float(1)           & 1.0         \\ \hline
+        int()    & int(2.6), int("2") & 2, 2        \\ \hline
+        list()   & list(range(2))     & {[}0, 1{]}  \\ \hline
+        str()    & str(100)           & '100'       \\ \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Datatyper}
+
+    Type gir hvilken datatype en variabel er, dermed kan vi sjekke med en if. Kan også bruke \textit{isinstance}
+
+\begin{python}
+a = 1.23
+if type(a) == float:
+    print("a er en float")
+if isinstance(a, float):
+    print("a er fortsatt en float")
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Datatyper}
+
+    Dette kan ofte være nyttig i funksjoner for å gjøre forskjellige ting for forskjellige parametere. 
+
+\end{frame}
