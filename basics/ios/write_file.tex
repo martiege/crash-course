@@ -1,0 +1,79 @@
+
+\begin{frame}
+    \frametitle{Input og output - Skrive til filer}
+
+    Igjen brukes \textit{open}-funksjonen. Viktig å holde tunga rett i munnen, siden det er mye som kan gå galt her.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Skrive til filer}
+
+    Igjen brukes \textit{open}-funksjonen. Viktig å holde tunga rett i munnen, siden det er mye som kan gå galt her.
+
+    Her er det tre nye moduser, ikke bare \textit{"r"}, som tidligere. 
+
+    \begin{itemize}
+        \item "w": Write, standard skriving. Dersom fila eksisterer fra før av, slettes den opprinnelige fila. 
+        \item "a": Append, legger til tekst på slutten av fila. Dersom den ikke eksisterer, opprettes den. 
+        \item "x": Exclusive write, vil feile dersom fila allerede eksisterer. Kan bare brukes til å opprette nye filer. 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Skrive til filer}
+
+    Igjen brukes \textit{open}-funksjonen. Viktig å holde tunga rett i munnen, siden det er mye som kan gå galt her.
+
+    Her er det tre nye moduser, ikke bare \textit{"r"}, som tidligere. 
+
+    \begin{itemize}
+        \item "w": Write, standard skriving. Dersom fila eksisterer fra før av, slettes den opprinnelige fila. 
+        \item "a": Append, legger til tekst på slutten av fila. Dersom den ikke eksisterer, opprettes den. 
+        \item "x": Exclusive write, vil feile dersom fila allerede eksisterer. Kan bare brukes til å opprette nye filer. 
+    \end{itemize}
+
+    Det finnes også en modus "+", som tillater oppdatering (read og write samtidig), men er oftest bedre å gjøre dette i to steg. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Skrive til filer}
+
+    Igjen brukes \textit{open}-funksjonen. Viktig å holde tunga rett i munnen, siden det er mye som kan gå galt her.
+
+    Tilsvarende som med å lese fra filer, kan filer også åpnes som binærfiler. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Skrive til filer}
+
+    Igjen brukes \textit{open}-funksjonen. Viktig å holde tunga rett i munnen, siden det er mye som kan gå galt her.
+
+    Tilsvarende som med å lese fra filer, kan filer også åpnes som binærfiler. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Skrive til filer}
+
+    Skriving til fil er dermed ganske rett frem. Man skriver fra \textit{der man er} i fila. 
+
+\begin{python}
+f = open("test.txt", "w")
+f.write("Hello\n")
+f.write("World!\n")
+f.close()
+
+g = open("test.txt", "a")
+g.write("New\n")
+g.write("lines!\n")
+g.close()
+\end{python}
+
+\end{frame}
+
+

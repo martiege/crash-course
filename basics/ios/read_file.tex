@@ -1,0 +1,168 @@
+
+\begin{frame}
+    \frametitle{Input og output - Lese filer}
+
+    \textit{open}-funksjonen brukes til å åpne filer generelt. Dette gjelder både lesing av og skriving til filer. 
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Input og output - Lese filer}
+
+    \textit{open}-funksjonen brukes til å åpne filer generelt. Dette gjelder både lesing av og skriving til filer. 
+
+    Vi begynner med å lese fra filer som allerede eksisterer. 
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Input og output - Lese filer}
+
+    \textit{open}-funksjonen tar inn to parametere. Begge er strenger, den første er hvilken fil du vil åpne, og den andre er hvilken \textit{modus} du vil åpne filen i. For å lese fra filer bruker vi "r" for å lese. 
+    
+    Vi kan videre bestemme om vi vil åpne fila som en tekstfil eller binærfil. 
+
+    Det vil si, "rt" og "rb", men "r" tolkes som "rt", siden det er vanligst, og med mindre det står eksplisitt på eksamen at man skal lese fila som en binærfil, er det "r" som mest sannsynlig skal brukes for å lese filer. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Filen "test.txt" må eksistere, ellers får vi en feilmelding. I tillegg må den ligge i \textbf{samme mappe som du kjører Python-fila fra}. 
+
+\begin{python}
+f = open("test.txt", "r")
+print(f.read())
+f.close()
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Filen "test.txt" må eksistere, ellers får vi en feilmelding. I tillegg må den ligge i \textbf{samme mappe som du kjører Python-fila fra}. 
+
+    Dette kalles relativ filplassering. 
+
+\begin{python}
+f = open("test.txt", "r")
+print(f.read())
+f.close()
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Metoden \textit{read()} henter ut \textbf{all} teksten fra fila. 
+
+\begin{python}
+f = open("test.txt", "r")
+print(f.read())
+f.close()
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Metoden \textit{read()} henter ut \textbf{all} teksten fra fila. Det vil si at vi ikke kan lese to ganger fra samme objekt, og eventuelt må åpne fila på nytt. 
+
+\begin{python}
+f = open("test.txt", "r")
+print(f.read())
+f.close()
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Metoden \textit{read()} henter ut \textbf{all} teksten fra fila. Det vil si at vi ikke kan lese to ganger fra samme objekt, og eventuelt må åpne fila på nytt. 
+
+    Husk å lukke fila til slutt. Dette er ikke like viktig når man leser fra en fil som når man skriver til en fil, men er lurt siden man kan miste poeng på eksamen. 
+
+\begin{python}
+f = open("test.txt", "r")
+print(f.read())
+f.close()
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Det finnes andre metoder også, for eksempel, dersom tekstfila er for stor til å åpnes i minnet. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Det finnes andre metoder også, for eksempel, dersom tekstfila er for stor til å åpnes i minnet. 
+    
+    Metoden \textit{readline()} leser en og en linje, og når alt er lest ut returnerer den bare tomme strenger. 
+
+\begin{python}
+f = open("test.txt", "r")
+
+f_lesing = f.readline()
+print(f_lesing)
+while f_lesing != "":
+    f_lesing = f.readline()
+    print(f_lesing)
+
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Det finnes andre metoder også, for eksempel, dersom tekstfila er for stor til å åpnes i minnet. 
+
+    Metoden \textit{readlines()} er veldig lik, men leser ut alle linjene i fila, og legger dem i en liste. 
+    
+    Begge disse kan være nyttige (spesielt \textit{readlines()}) dersom man skal gjøre noe pr. linje, og kan gjøre det mer intuitivt å jobbe med filer. 
+
+\begin{python}
+f = open("test.txt", "r")
+
+f_linjer = f.readlines()
+for linje in f_linjer:
+    print(linje)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Input og output - Lese filer}
+
+    Det finnes andre metoder også, for eksempel, dersom tekstfila er for stor til å åpnes i minnet. 
+    
+    Begge disse kan være nyttige (spesielt \textit{readlines()}) dersom man skal gjøre noe pr. linje, og kan gjøre det mer intuitivt å jobbe med filer. 
+
+\begin{python}
+f = open("test1.txt", "r")
+g = open("test2.txt", "r")
+
+f_lesing = f.readline()
+print(f_lesing)
+while f_lesing != "":
+    f_lesing = f.readline()
+    print(f_lesing)
+
+g_linjer = g.readlines()
+for linje in g_linjer:
+    print(linje)
+\end{python}
+
+\end{frame}
