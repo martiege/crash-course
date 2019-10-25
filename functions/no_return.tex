@@ -1,0 +1,66 @@
+
+\begin{frame}
+    \frametitle{Funksjoner - Funksjoner uten retur-verdi}
+
+    I mange tilfeller skal en funksjon gjøre noe enkelt som ikke krever at koden husker på endringen etter funksjonen har blitt kjørt. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Funksjoner - Funksjoner uten retur-verdi}
+
+    I mange tilfeller skal en funksjon gjøre noe enkelt som ikke krever at koden husker på endringen etter funksjonen har blitt kjørt. 
+
+    Dette er ofte relatert til \textit{output}, som f.eks. printing og skrive til fil. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Funksjoner - Funksjoner uten retur-verdi}
+
+    Funksjoner begynner med kodeordet \textit{def}, funksjonsnavnet, en parentes med alle parameterene funksjonen tar inn og \textbf{VIKTIG} kolon :. Det må også være minst en kodesnutt i funksjonen.
+
+    Kanskje den enkleste funksjonen?
+
+\begin{python}
+def func():
+    pass
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Funksjoner - Funksjoner uten retur-verdi}
+
+    Eksempel med printing. 
+
+\begin{python}
+def print_resultater(res, tekst):
+    print("Resultatet ble",res,sep=": ",end=" og ")
+    print("dette er teksten: " + tekst)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Funksjoner - Funksjoner uten retur-verdi}
+
+    Vi har allerede jobbet med default-parametere. \textit{sep} og \textit{end} er default-verdier i \textit{print}-funksjonen, og med mindre de spesifiseres vil \textit{sep} alltid være " " (mellomrom) og \textit{end} alltid være "\textbackslash n" (ny linje). 
+
+    Her bruker vi det til å bestemme om vi skal printe eller lagre til fil. 
+
+\begin{python}
+def output_resultater(res, file_path=""):
+    if file_path != "":
+        f = open(file_path, "w")
+        f.write(res)
+        f.close()
+    else:
+        print("Her er resultatet:", res)
+
+output_resultater("hei") # printes
+output_resultater("hei", "test.txt") # skrives til fil
+output_resultater("hei", file_path="test.txt")
+\end{python}
+
+\end{frame}
