@@ -1,0 +1,51 @@
+
+\begin{frame}[fragile]
+    \frametitle{Tilordningsoperatoren}
+
+    Flere tilordninger etter hverandre 
+
+\begin{python}
+a = b = c = 3.14
+\end{python}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Tilordningsoperatoren}
+
+    Flere tilordninger etter hverandre 
+
+    \textit{Triks}: Parenteser. 
+
+\begin{python}
+a = (b = (c = 3.14)) 
+# ikke riktig syntaks, kun for illustrere
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Flere tilordningsoperatorer}
+
+    Finnes flere tilordningsoperatorer. 
+    
+    \textbf{VIKTIG}: Bortsett fra standard tilordning, må variabelen som tilordnes har en verdi fra før av. 
+
+    \begin{table}[]
+        \begin{tabular}{|l|l|l|}
+        \hline
+        Operator & Eksempel & Det samme som \\ \hline
+        =        & a = 1    & a = 1         \\ \hline
+        -=       & a -= 1   & a = a - 1     \\ \hline
+        /=       & a /= 1   & a = a / 1     \\ \hline
+        //=      & a //= 1  & a = a // 1    \\ \hline
+        +=       & a += 1   & a = a + 1     \\ \hline
+        *=       & a *= 1   & a = a * 1     \\ \hline
+        \%=      & a \%= 1  & a = a \% 1    \\ \hline
+        **=      & a **= 1  & a = a**1      \\ \hline
+        \end{tabular}
+        \end{table}
+
+\end{frame}
+

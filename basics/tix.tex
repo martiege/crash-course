@@ -1,0 +1,13 @@
+\begin{tikzpicture}[sharp corners=2pt,inner sep=7pt,node distance=.8cm,every text node part/.style={align=center}]
+    \node[draw, minimum height = 2cm, minimum width = 2cm] (state0){a: \textbf{1}};
+    \node[draw,right=1cm of state0, minimum height = 2cm, minimum width = 2cm](state1){b: \textbf{2}};
+    \node[draw,below=1cm of state0, minimum height = 2cm, minimum width = 2cm](state2){a: \textbf{?}};
+    \node[draw,below=1cm of state1, minimum height = 2cm, minimum width = 2cm](state3){b: \textbf{?}};
+     
+    %Draw arrows
+    \draw[-triangle 60] (state0) -- (state2) node [midway, above, left = 0.1cm]{$\mu^{02}_{x+t:y+t}$};
+    \draw[-triangle 60] (state0) -- (state1) node [midway, above]{$\mu^{01}_{x+t:y+t}$};
+    \draw[-triangle 60] (state1) -- (state3) node [midway, above, right = 0.1cm]{$\mu^{13}_{x+t:y+t}$};
+    \draw[-triangle 60] (state2) -- (state3) node [midway, above]{$\mu^{23}_{x+t:y+t}$};
+    \draw[-triangle 60] (state0) -- (state3) node [midway, above, rotate = -45]{$\mu^{03}_{x+t:y+t}$};
+\end{tikzpicture}

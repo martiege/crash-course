@@ -1,0 +1,158 @@
+
+\begin{frame}[fragile] 
+    \frametitle{Tilordningsoperatoren} 
+\begin{python}
+a = "hei"
+b = 3.14
+a = b
+b = a
+\end{python}
+
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+      & 1       & 2     & 3     & 4 
+    \\ \hline
+    a &    &  &   & 
+    \\ \hline
+    b &       &   &  & 
+    \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame} 
+
+\begin{frame}[fragile] 
+	\frametitle{Tilordningsoperatoren} 
+\begin{python}
+a = "hei"
+b = 3.14
+a = b
+b = a
+\end{python}
+
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+      & 1       & 2     & 3     & 4 
+    \\ \hline
+    a & "hei"   &  &   &  
+    \\ \hline
+    b & ?       &   &   & 
+    \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame} 
+
+\begin{frame}[fragile] 
+	\frametitle{Tilordningsoperatoren} 
+\begin{python}
+a = "hei"
+b = 3.14
+a = b
+b = a
+\end{python}
+
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+      & 1       & 2     & 3     & 4 
+    \\ \hline
+    a & "hei"   & "hei" &   & 
+    \\ \hline
+    b & ?       & 3.14  &   & 
+    \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame} 
+
+\begin{frame}[fragile] 
+	\frametitle{Tilordningsoperatoren} 
+\begin{python}
+a = "hei"
+b = 3.14
+a = b
+b = a
+\end{python}
+
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+      & 1       & 2     & 3     & 4 
+    \\ \hline
+    a & "hei"   & "hei" & 3.14  & 
+    \\ \hline
+    b & ?       & 3.14  & 3.14  & 
+    \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame} 
+
+\begin{frame}[fragile] 
+    \frametitle{Tilordningsoperatoren} 
+    
+    Problem: Gammel verdi blir overskrevet. Vi kan bare endre en ting av gangen. 
+
+\begin{python}
+a = "hei"
+b = 3.14
+a = b
+b = a
+\end{python}
+
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+      & 1       & 2     & 3     & 4 
+    \\ \hline
+    a & "hei"   & "hei" & 3.14  & 3.14 
+    \\ \hline
+    b & ?       & 3.14  & 3.14  & 3.14 
+    \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame} 
+
+\begin{frame}[fragile]
+    \frametitle{Tilordningsoperatoren}
+
+    To vanlige løsninger
+
+\begin{python}[fragile]
+a = "hei"
+b = 3.14
+old_a = a   # ofte kalt temporary / temp
+a = b
+b = old_a
+\end{python}
+
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+           & 1     & 2     & 3     & 4     & 5     \\ \hline
+    a      & "hei" & "hei" & "hei" & 3.14  & 3.14  \\ \hline
+    b      & ?     & 3.14  & 3.14  & 3.14  & "hei" \\ \hline
+    a\_old & ?     & ?     & "hei" & "hei" & "hei" \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tilordningsoperatoren}
+
+    To vanlige løsninger
+
+\begin{python}[fragile]
+a = "hei"
+b = 3.14
+(b, a) = (a, b) 
+# bruker tupler
+# kommer tilbake til dette senere
+\end{python}
+
+\end{frame}
