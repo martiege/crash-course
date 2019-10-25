@@ -1,14 +1,16 @@
-\frametitle{Aritmetiske operatorer}
+\frametitle{Input og output - Skrive til filer}
 
-    Hva skjer her?
-
-    True printes. Hvorfor trenger man da \textit{sqrt} funksjonen?
+    Skriving til fil er dermed ganske rett frem. Man skriver fra \textit{der man er} i fila.
 
 \begin{python}
-from math import sqrt
-a = sqrt(2)
-b = 2**(1/2)
+f = open("test.txt", "w")
+f.write("Hello\n")
+f.write("World!\n")
+f.close()
 
-print(a == b)
+g = open("test.txt", "a")
+g.write("New\n")
+g.write("lines!\n")
+g.close()
 \end{python}
 
