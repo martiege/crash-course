@@ -1,0 +1,142 @@
+
+\begin{frame}[fragile]
+    \frametitle{Sammenligningsoperatorer}
+
+    Sammenligningsoperatorer og betingede hendelser er kanskje det viktigste med datamaskiner. Det er nødvendig for å gjøre en datamaskin \textit{Turing-complete}.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Sammenligningsoperatorer}
+
+    Boolske variabler er essensielle for sammenligningsoperatorer. En boolsk variabel kan kun være to verdier, \textit{True} eller \textit{False}. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sammenligningsoperatorer}
+
+    Sammenligningsoperatorer og logiske operatorer. 
+
+    \begin{table}[]
+        \begin{tabular}{|l|l|l|}
+        \hline
+        Operator        & Eksempel                        & Resultat \\ \hline
+        \textless{}     & 2 \textless 2                   & False    \\ \hline
+        \textgreater{}  & 2 \textgreater 2                & False    \\ \hline
+        \textless{}=    & 2 \textless{}= 2                & True     \\ \hline
+        \textgreater{}= & 2 \textgreater{}= 2             & True     \\ \hline
+        ==              & 2 == 2                          & True     \\ \hline
+        !=              & 2 != 2                          & False    \\ \hline
+        and             & True and False                  & False    \\ \hline
+        or              & True or False                   & True     \\ \hline
+        not             & not False                       & True     \\ \hline
+        in              & 1 in {[}3, "hei", 1{]}          & True     \\ \hline
+        not in          & "hade" not in {[}3, "hei", 1{]} & True     \\ \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Betingelser}
+
+    \textit{if}, \textit{elif} og \textit{else} brukes for å kontrollere programflyten. Man kan dermed aktivere en utvalgt del av koden ved å sjekke boolske verdier. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Betingelser}
+
+    \textit{if}, \textit{elif} og \textit{else} brukes for å kontrollere programflyten. 
+    
+    Man kan dermed aktivere en utvalgt del av koden ved å sjekke boolske verdier. 
+
+\begin{python}
+num = 1
+if num == 0:
+    print("num er 0")
+elif num == 1:
+    print("num er 1")
+else:
+    print("num er noe annet")
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Betingelser}
+
+    \textit{if}, \textit{elif} og \textit{else} brukes for å kontrollere programflyten. 
+
+    Man kan kjede så mange \textit{elif}-er etter hverandre. 
+
+\begin{python}
+num = 1
+if num == 0:
+    print("num er 0")
+elif num == 1:
+    print("num er 1")
+elif num == 2:
+    print("num er 2")
+elif num == 3:
+    print("num er 3")
+else:
+    print("num er noe annet")
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Betingelser}
+
+    \textit{if}, \textit{elif} og \textit{else} brukes for å kontrollere programflyten. 
+
+    Man kan kjede så mange \textit{elif}-er etter hverandre. 
+
+    \textbf{Viktig}: Kun en av kode-snuttene vil kjøre mellom en \textit{if} og \textit{else}! 
+
+\begin{python}
+num = 1
+if num == 0:
+    print("num er 0")
+elif num == 1:
+    print("num er 1")
+elif num == 2:
+    print("num er 2")
+elif num == 3:
+    print("num er 3")
+else:
+    print("num er noe annet")
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Betingelser}
+
+    \textit{if}, \textit{elif} og \textit{else} brukes for å kontrollere programflyten. 
+
+    Man kan kjede så mange \textit{elif}-er etter hverandre. 
+
+    \textbf{Viktig}: Kun en av kode-snuttene vil kjøre mellom en \textit{if} og \textit{else}! 
+
+    Her er det nye \textit{if}-er, og dermed kan flere aktiveres samtidig.
+
+\begin{python}
+num = 1
+if num < 0:
+    print("num mindre enn 0")
+if num < 1:
+    print("num mindre enn 1")
+if num < 2:
+    print("num mindre enn 2")
+if num < 3:
+    print("num mindre enn 3")
+else:
+    print("num er noe annet")
+\end{python}
+
+\end{frame}
+
+
