@@ -1,0 +1,68 @@
+
+\begin{frame}
+    \frametitle{Dictionaries}
+
+    Dictionaries er kanskje den nyttigeste datastrukturen i Python, og en av de mest brukte. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dictionaries}
+
+    Dictionaries er kanskje den nyttigeste datastrukturen i Python, og en av de mest brukte. Det som er viktig å huske på er at en dictionary \textit{kobler} sammen ulike verdier. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dictionaries}
+
+    Dictionaries er kanskje den nyttigeste datastrukturen i Python, og en av de mest brukte. Det som er viktig å huske på er at en dictionary \textit{kobler} sammen ulike verdier. 
+
+    Vi kobler fra en \textit{nøkkel} til en \textit{verdi}.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Syntaksen fungerer i prinsipp på samme måte som en liste. Vi bruker firkantparenteser til å aksessere \textit{verdien} som ligger på en \textit{nøkkel}.
+
+\begin{python}
+dictionary = {"katt": 1, "hund": 2}
+print(dictionary["katt"]) # gir 1
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Kan forenkle problemer som kan være vanskelige med lister. Eksempel: Telle opp antall bokstaver i en streng. 
+
+\begin{python}
+streng = "heihei"
+# alle bokstaver fra a til z
+bokstaver = [chr(bokstav) for bokstav in range(ord("a"), ord("z") + 1, 1)]
+oppteller = [0] * len(bokstaver)
+for i in range(len(bokstaver)): 
+    oppteller[i] = streng.count(bokstaver[i])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Kan forenkle problemer som kan være vanskelige med lister. Eksempel: Telle opp antall bokstaver i en streng. 
+
+    Kan være vanskelig å håndtere dette, siden vi har to separate lister. Finnes selvsagt andre løsninger, men for å få en direkte kobling mellom bokstav og antall er det enklest med dictionary. 
+
+\begin{python}
+streng = "heihei"
+bokstaver_til_antall = {}
+for bokstav in streng: 
+    antall = bokstaver_til_antall.setdefault(bokstav, 0)
+    bokstaver_til_antall[bokstav] = antall + 1
+\end{python}
+
+\end{frame}

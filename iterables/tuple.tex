@@ -1,0 +1,113 @@
+
+\begin{frame}
+    \frametitle{Tupler}
+
+    Tupler er basically det samme som lister, men de er ikke-muterbare, som strenger. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tupler}
+
+    Defineres på samme måte som lister, bare med parenteser istedenfor firkantparenteser.
+
+\begin{python}
+liste = [1, 2, 3]
+tuple = (1, 2, 3)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tupler}
+
+    Metoder: Siden tupler er ikke-muterbare, er det svært få metoder, og de er generelt ikke nødvendige å kunne. 
+
+    \begin{itemize}
+        \item count
+        \item index
+    \end{itemize}
+
+\begin{python}
+t = (1, 2, 3, 1)
+t.count(1) # -> 2
+t.index(1) # -> 0
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tupler}
+
+    Hvorfor bruke tupler? 
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Tupler}
+
+    Hvorfor bruke tupler? 
+
+    Tupler kan brukes der du vet du har en mengde som er konstant
+
+\begin{python}
+mynter = (20, 10, 5, 1)
+penger = 19
+liste  = [0] * len(mynter)
+for i in range(len(mynter)): 
+    liste[i] = penger \\ mynter[i]
+    penger  %= mynter[i]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tupler}
+
+    Kan forenkle kode som trenger flere linjer. Tenk tilbake til tilordningsproblemet der vi ville bytte om på verdiene i to variabler.
+
+\begin{python}
+a = "hei"
+b = 2
+temp = a
+a = b
+b = temp
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tupler}
+
+    Kan forenkle kode som trenger flere linjer. Tenk tilbake til tilordningsproblemet der vi ville bytte om på verdiene i to variabler. Dette kan nå forenkles. 
+
+\begin{python}
+a = "hei"
+b = 2
+a, b = b, a
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tupler}
+
+    Mange nyttige funksjoner man kan få bruk for bruker også tupler. 
+
+\begin{python}
+for index, element in enumerate(liste)
+for key, item in dictionary.items()
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tupler}
+
+    Generelt: hvis du kan gjøre det med tupler, kan det gjøres med lister eller med annen kode. Tupler er hovedsakelig \textit{ekstra}. 
+
+\end{frame}
+
+
+

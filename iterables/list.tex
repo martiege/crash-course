@@ -1,0 +1,78 @@
+
+\begin{frame}[fragile]
+    \frametitle{Lister}
+
+    Lister er en gruppe med objekter som ligger etter hverandre i \textit{minnet}. 
+    
+    De defineres med firkant-parenteser rundt objekter som er separert med komma. 
+    
+    De kan være av forskjellige typer, men det er ikke alltid lurt. Da kan man ikke behandle elementene likt. 
+
+\begin{python}
+liste = ["hei", 1, 0.1]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Lister}
+
+    Lister kan endres.
+
+\begin{python}
+liste = ["hei", 1, 0.1]
+liste[1] = "alle"
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Lister}
+
+    Lister kan utvides. 
+
+\begin{python}
+liste = ["hei", 1, 0.1]
+liste = liste + ["alle", "sammen"]
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Lister}
+
+    Alle gjør endringer på den originale listen, \textbf{bortsett fra} \textit{copy()}, som returnerer en ny liste. Dette er viktig dersom man vil beholde originalen. 
+
+    \begin{table}[]
+        \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        Metode & Eksempel               &  & Metode  & Eksempel        \\ \hline
+        append & liste.append("hei")    &  & reverse & liste.reverse() \\ \hline
+        insert & liste.insert(2, "hei") &  & sort    & liste.sort()    \\ \hline
+        remove & liste.remove("hei")    &  & copy    & liste.copy()    \\ \hline
+        pop    & liste.pop(1)           &  & clear   & kopi = liste.clear()   \\ \hline
+        count  & liste.count("hei")     &  &         &                 \\ \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Lister}
+
+    Når man bruker lister i funksjoner, så må man huske at hvis man endrer listen man tar inn, så endres den utenfor også! 
+    
+    Dette gjelder ikke for vanlige variabler/parametere.
+
+\begin{python}
+def sett_tall(tall):
+    tall = 1
+def legg_til(liste):
+    liste.append(1)
+a = "hei"
+sett_tall(a) # a endres ikke
+l = [1, 5.12]
+legg_til(l) # l endres
+\end{python}
+
+\end{frame}
