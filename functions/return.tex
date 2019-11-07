@@ -31,12 +31,42 @@ def pluss(tall_1, tall_2):
 \begin{frame}[fragile]
     \frametitle{Funksjoner - Funksjoner med retur-verdi}
 
-    \textbf{Viktig}: Når en verdi returneres fra en funksjon, så kan det tolkes som at vi \textit{bytter} ut funksjonskallet med 
+    \textbf{Viktig}: Når en verdi returneres fra en funksjon, så kan det tolkes som at vi \textit{bytter} ut funksjonskallet med det som beregnes i og returneres av funksjonen. 
 
 \begin{python}
 def pluss(tall_1, tall_2):
     tall_sum = tall_1 + tall_2
     return tall_sum
+
+resultat = pluss(1, 2)
+print(resultat)
 \end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Funksjoner - Funksjoner med retur-verdi}
+
+    \textbf{Viktig}: Når en verdi returneres, må den tilordnes, ellers glemmer programmet hva resultatet er. 
+
+    I noen tilfeller trenger vi kanskje ikke resultatet til noe annet enn f.eks. printing, men ofte er det lurt å tilordne. 
+
+\begin{python}
+def pluss(tall_1, tall_2):
+    tall_sum = tall_1 + tall_2
+    return tall_sum
+
+resultat = pluss(1, 2)
+print(resultat)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Funksjoner - Funksjoner med retur-verdi}
+
+    Styrken med funksjoner er at de kan være ganske generelle, og spesifiseres kun når de kalles. 
+    
+    Sammen med løkker og lister er funksjoner noe av det viktigste med programmering. 
 
 \end{frame}
