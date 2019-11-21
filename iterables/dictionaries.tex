@@ -66,3 +66,144 @@ for bokstav in streng:
 \end{python}
 
 \end{frame}
+
+\begin{frame}
+    \frametitle{Dictionaries}
+
+    Metoder
+
+    \begin{table}[]
+        \begin{tabular}{|l|l|}
+        \hline
+        Metode   & Eksempel                      \\ \hline
+        clear    & dictionary.clear()            \\ \hline
+        copy     & kopi = dictionary.copy()      \\ \hline
+        fromkeys & dict.fromkeys(keys, values)   \\ \hline
+        get      & value = dictionary.get(key)   \\ \hline
+        items    & t\_list = dictionary.items()  \\ \hline
+        values   & verdier = dictionary.values() \\ \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Dictionaries}
+
+    Metoder (Cont.)
+
+    \begin{table}[]
+        \begin{tabular}{|l|l|}
+        \hline
+        Metode     & Eksempel                                    \\ \hline
+        keys       & nøkler = dictionary.keys()                  \\ \hline
+        pop        & dictionary.pop(key)                         \\ \hline
+        popitem    & dictionary.popitem()                        \\ \hline
+        setdefault & value = dictionary.setdefault(key, default) \\ \hline
+        update     & dictionary.update(iterable)                 \\ \hline
+        update     & dictionary.update(other\_dict)              \\ \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Kombineres godt med for-løkker. Avhengig av hva du trenger, har vi flere metoder for å iterere oss gjennom en dictionary. 
+
+\begin{python}
+dictionary = {"hello": "world", 12: 9}
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Kombineres godt med for-løkker. Avhengig av hva du trenger, har vi flere metoder for å iterere oss gjennom en dictionary. 
+
+    Dersom vi kun er interessert i verdiene, og ikke nøklene (ofte hvis noe kun skal printes ut): 
+
+\begin{python}
+dictionary = {"hello": "world", 12: 9}
+for value in dictionary.values(): 
+    print(value)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Kombineres godt med for-løkker. Avhengig av hva du trenger, har vi flere metoder for å iterere oss gjennom en dictionary. 
+
+    Dersom vi kun er interessert i nøklene, og ikke verdiene, eller ønsker å aksessere verdiene med firkantparenteser: 
+
+\begin{python}
+dictionary = {"hello": "world", 12: 9}
+for key in dictionary.keys(): 
+    print(key, dictionary[key])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Kombineres godt med for-løkker. Avhengig av hva du trenger, har vi flere metoder for å iterere oss gjennom en dictionary. 
+
+    Dersom vi er interessert i både verdi og nøkler, som vi kanskje oftest er: 
+
+\begin{python}
+dictionary = {"hello": "world", 12: 9}
+for key, value in dictionary.items(): 
+    print(key, value)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Husk: det er lett å gå fra nøkkel til verdi, men vanskelig å gå fra verdi til nøkkel: 
+
+\begin{python}
+# value to key
+dictionary = {"hello": "world", 12: 9}
+key = "hello"
+value = dictionary[key]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Dictionaries}
+
+    Husk: det er lett å gå fra nøkkel til verdi, men vanskelig å gå fra verdi til nøkkel: 
+
+\begin{python}
+# value to key
+dictionary = {"hello": "world", 12: 9}
+key = None # ingen key enda, setter den til None
+value = "hello"
+for current_key, current_value in dictionary.items(): 
+    if current_value == value: 
+        key = current_key
+        break # bare en key pr. value
+\end{python}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
