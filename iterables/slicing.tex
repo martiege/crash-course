@@ -1,0 +1,137 @@
+\begin{frame}
+    \frametitle{Slicing}
+
+    Slicing er en måte å indeksere en bestemt del av en iterable, hovedsakelig lister, strenger og tupler.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Slicing}
+
+    Slicing er en måte å indeksere en bestemt del av en iterable, hovedsakelig lister, strenger og tupler. Vi bruker firkantparenteser, siden vi aksesserer, og samme syntaks som en \textit{range} for å bestemme hva vi vil aksessere.
+
+\begin{python}
+iterable[fra_og_med_start:til_men_ikke_med_slutt:steg]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Slicing}
+
+    Dersom vi vil starte på start, \textit{trenger man ikke skrive noe før første kolon}.
+
+\begin{python}
+iterable[:til_men_ikke_med_slutt:steg]
+\end{python}
+
+    Dersom vi vil slutte på, inklusiv, slutten, \textit{trenger man ikke skrive noe mellom første og andre kolon}. 
+
+\begin{python}
+iterable[fra_og_med_start::steg]
+\end{python}
+
+    Dersom vi vil bruke 1 som \textit{steg}, \textit{trenger man ikke skrive noe etter siste kolon}, og man \textit{trenger ikke ha med siste kolon heller}. 
+
+\begin{python}
+iterable[fra_og_med_start:til_men_ikke_med_slutt:]
+iterable[fra_og_med_start:til_men_ikke_med_slutt]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Slicing}
+
+    Grunnen til at slicing går fra og med, til men ikke med, er at da kan man dele opp en iterable med samme indeks. 
+
+\begin{python}
+lst[:ind] + lst[ind:] == lst # -> True
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Slicing}
+
+    Dette kan f.eks. brukes for kjapp kopiering eller reversering av lister.
+
+    Slicing returnerer \textbf{nye} objekter, i motsetning til f.eks. \textit{lst.reverse()}. 
+
+\begin{python}
+kopi = lst[:]
+rev  = lst[::-1]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Slicing}
+
+    Vi kan også bruke slicing til å korte ned denne koden fra tidligere. 
+
+\begin{python}
+def insert_string(original, index, new_string):
+    # antar at index er valid
+    resultat = "" # starter med tom streng 
+    for i in range(len(original)): 
+        if i == index: 
+            resultat += new_string 
+        # om vi plusser foran eller bak new_string 
+        # bestemmer om vi inserter foran eller bak. 
+        resultat += original[i] 
+    return resultat
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Slicing}
+
+    Vi kan også bruke slicing til å korte ned denne koden fra tidligere. 
+
+\begin{python}
+def insert_string(original, index, new_string):
+    # antar at index er valid
+    return original[:index] + new_string + original[index:]
+\end{python}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

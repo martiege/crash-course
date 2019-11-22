@@ -1,0 +1,86 @@
+
+\begin{frame}
+    \frametitle{Unntak}
+
+    Kode kjører ikke alltid som vi forventer, spesielt hvis vi har bruker-input. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Unntak}
+
+    Kode kjører ikke alltid som vi forventer, spesielt hvis vi har bruker-input. 
+
+    Det som ofte gjøres da er at man skriver kode, som forventer at svarene lar koden kjøre, og har unntak dersom noe uventet skjer. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Unntak}
+
+    Kode kjører ikke alltid som vi forventer, spesielt hvis vi har bruker-input. 
+
+    Det som ofte gjøres da er at man skriver kode, som forventer at svarene lar koden kjøre, og har unntak dersom noe uventet skjer. 
+
+    Dette er en svært vanlig form for feilhåndtering. 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Unntak}
+
+    Kode kjører ikke alltid som vi forventer, spesielt hvis vi har bruker-input. 
+
+    Det som ofte gjøres da er at man skriver kode, som forventer at svarene lar koden kjøre, og har unntak dersom noe uventet skjer. 
+
+    Dette er en svært vanlig form for feilhåndtering. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Unntak}
+
+    Eksempel
+
+\begin{python}
+try:
+    number = int(input("Write a number: "))
+except ValueError as error: 
+    print(error)
+    print("Not a number")
+except: 
+    print("Some other mistake")
+else:
+    print("The number is:", number)
+finally:
+    print("Done")
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Unntak}
+
+    Eksempel
+
+\begin{python}
+try:
+    number = int(input("Write a number: ")) # runs always, but may crash
+except ValueError as error: # specifics assigned to variable error
+    # runs specifically if there is a ValueError
+    print(error) # prints the specifics of this error
+    print("Not a number")
+except: # runs for any other exception
+    print("Some other mistake")
+else: # runs if no crash
+    print("The number is:", number) 
+finally: # runs always
+    print("Done")
+\end{python}
+
+\end{frame}
+
+
+
+
+

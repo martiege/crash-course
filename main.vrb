@@ -1,16 +1,19 @@
-\frametitle{Input og output - Skrive til filer}
+\frametitle{Unntak}
 
-    Skriving til fil er dermed ganske rett frem. Man skriver fra \textit{der man er} i fila.
+    Eksempel
 
 \begin{python}
-f = open("test.txt", "w")
-f.write("Hello\n")
-f.write("World!\n")
-f.close()
-
-g = open("test.txt", "a")
-g.write("New\n")
-g.write("lines!\n")
-g.close()
+try:
+    number = int(input("Write a number: ")) # runs always, but may crash
+except ValueError as error: # specifics assigned to variable error
+    # runs specifically if there is a ValueError
+    print(error) # prints the specifics of this error
+    print("Not a number")
+except: # runs for any other exception
+    print("Some other mistake")
+else: # runs if no crash
+    print("The number is:", number)
+finally: # runs always
+    print("Done")
 \end{python}
 

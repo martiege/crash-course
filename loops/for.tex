@@ -1,0 +1,385 @@
+
+\begin{frame}
+    \frametitle{Løkker - for-løkken}
+
+    for-løkker brukes når man har en bestemt \textit{iterable} man ønsker å iterere gjennom. 
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    for-løkker brukes når man har en bestemt \textit{iterable} man ønsker å iterere gjennom. Dette gjelder spesielt de vi allerede har gått gjennom, i form av \textit{lister} og \textit{tupler}. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    for-løkker brukes når man har en bestemt \textit{iterable} man ønsker å iterere gjennom. Dette gjelder spesielt de vi allerede har gått gjennom, i form av \textit{lister} og \textit{tupler}. 
+
+    Disse kan defineres \textit{inline}
+
+\begin{python}
+for word in ("hei", "hei", "alle", "sammen"): 
+    print(word)
+for word in ["hei", "hei", "alle", "sammen"]: 
+    print(word)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    for-løkker brukes når man har en bestemt \textit{iterable} man ønsker å iterere gjennom. Dette gjelder spesielt de vi allerede har gått gjennom, i form av \textit{lister} og \textit{tupler}. 
+
+    Eller på forhånd. Da kan de gjenbrukes senere, eller redefineres før. 
+
+\begin{python}
+tpl = ("hei", "hei", "alle", "sammen")
+lst = ["hei", "hei", "alle", "sammen"]
+for word in tpl: 
+    print(word)
+for word in lst: 
+    print(word)
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Løkker - for-løkken}
+
+    Det er hovedsakelig to måter å \textit{iterere} gjennom en liste. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det er hovedsakelig to måter å \textit{iterere} gjennom en liste. 
+
+    Element-vis. Man henter ut hvert \textit{element} i listen.
+
+\begin{python}
+lst = [1, 2, 3, "hei", (1, 2, 3)]
+for element in lst: 
+    print(element)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det er hovedsakelig to måter å \textit{iterere} gjennom en liste. 
+
+    Indeks-vis. Man henter ut \textit{plasseringen} til hvert element i listen. 
+
+\begin{python}
+lst = [1, 2, 3, "hei", (1, 2, 3)]
+for i in range(len(lst)): 
+    print(lst[i])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det er hovedsakelig to måter å \textit{iterere} gjennom en liste. 
+
+    Indeks-vis. Man henter ut \textit{plasseringen} til hvert element i listen. 
+
+    Viktig: hvis vi itererer element-vis gjennom en liste, vet vi egentlig ingenting om plasseringen, og hvis vi trenger indeksen, er det best å gå gjennom indeks-vis. 
+
+\begin{python}
+lst = [1, 2, 3, "hei", (1, 2, 3)]
+for i in range(len(lst)): 
+    print(lst[i])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det er hovedsakelig to måter å \textit{iterere} gjennom en liste. 
+
+    Kan bruke \textit{enumerate} for å få ut begge med en gang. 
+
+\begin{python}
+lst = [1, 2, 3, "hei", (1, 2, 3)]
+for i, element in enumerate(lst): 
+    # lst[i] == element -> True
+    print(i, lst[i], element)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det er hovedsakelig to måter å \textit{iterere} gjennom en liste. 
+
+    Kan bruke \textit{enumerate} for å få ut begge med en gang. Sjeldent dette ikke kan løses med bare indekser, og tilordning. 
+
+\begin{python}
+lst = [1, 2, 3, "hei", (1, 2, 3)]
+
+for i, element in enumerate(lst): 
+    # lst[i] == element -> True
+    print(i, lst[i], element)
+
+for i in range(len(lst)):
+    element = lst[i]
+    # lst[i] == element -> True
+    print(i, lst[i], element)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Løkker kan enkelt skrives inne i hverandre. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Løkker kan enkelt skrives inne i hverandre. Går gjennom hvert element i \textit{lst1}, sjekker hvert element i \textit{lst2} og ser om jeg finner det. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Løkker kan enkelt skrives inne i hverandre. Går gjennom hvert element i \textit{lst1}, sjekker hvert element i \textit{lst2} og ser om jeg finner det. 
+
+    Her trenger vi ikke gå gjennom med indekser (range), siden vi trenger ikke vite noe om posisjon. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det kan se vanskelig ut å analysere når det er flere løkker. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det kan se vanskelig ut å analysere når det er flere løkker. Det er enklest å begynne å analysere \textit{innenfra og ut}.
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Det kan se vanskelig ut å analysere når det er flere løkker. Det er enklest å begynne å analysere \textit{innenfra og ut}. Dette gjelder også når vi skal designe kode som bruker kode inni kode. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Vi antar at \textit{x} og \textit{y} er bestemte verdier (f.eks. \textit{x} = 1, \textit{y} = 2). Hva er det vi vil gjøre med denne bestemte verdien? 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Vi antar at \textit{x} og \textit{y} er bestemte verdier (f.eks. \textit{x} = 1, \textit{y} = 2). Hva er det vi vil gjøre med denne bestemte verdien? 
+
+    Hvis disse er like, øker vi \textit{telleren} med 1. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Vi antar at \textit{x} og \textit{y} er bestemte verdier (f.eks. \textit{x} = 1, \textit{y} = 2). Hva er det vi vil gjøre med denne bestemte verdien? 
+
+    Hvis disse er like, øker vi \textit{telleren} med 1. 
+
+    Nå er den \textit{innerste} delen av koden abstrahert bort. Hva er neste steg? 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Vi antar at \textit{x} er en bestemt verdi (f.eks. \textit{x} = 1). 
+
+    Vi vet hva som skjer for en bestemt \textit{y}, så det kan generaliseres. Vi vet hva \textit{x} er, og vi vet hva vi skal gjøre hvis vi har en \textit{x} og en \textit{y}. Så vi går gjennom alle mulige \textit{y}-er. 
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Nå trenger vi ikke lenger å se på en bestemt verdi for \textit{x}, siden vi vet hva som skjer med en (den sammenlignes med hver mulige \textit{y}), kan den også generaliseres. 
+
+    For hver mulige \textit{x}, sjekk hver mulige \textit{y}. Dersom \textit{x} == \textit{y}, så øker vi telleren med en.
+
+\begin{python}
+def antall_like(lst1, lst2):
+    res = 0
+    for x in lst1: 
+        for y in lst2:
+            if x == y: 
+                res += 1
+    
+    return res
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Løkker - for-løkken}
+
+    Strenger og tupler kan behandles ganske likt, siden begge er ikke-muterbare. F.eks., dersom vi vil endre noe, så må vi bygge disse strukturene på nytt. 
+
+    Dette kan vi gjøre litt enklere senere med slicing. 
+
+\begin{python}
+def insert_string(original, index, new_string):
+    # antar at index er valid
+    resultat = "" # starter med tom streng 
+    for i in range(len(original)): 
+        if i == index: 
+            resultat += new_string 
+        # om vi plusser foran eller bak new_string 
+        # bestemmer om vi inserter foran eller bak. 
+        resultat += original[i] 
+    return resultat
+\end{python}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,7 +39,13 @@ while i < 10:
     Veldig bra å bruke dersom man ikke vet hvor mange ganger løkka skal kjøre, men \textit{vet det når man ser det}. 
 
 \begin{python}
-
+# dette er en metode som sikrer at det tomme svaret 
+# ikke blir tatt med
+answer = input("Skriv inn ditt svar: ")
+answer_lst = []
+while answer != "": # tomt svar, trykket enter med en gang 
+    answer_lst.append(answer) 
+    answer = input("Skriv inn ditt svar: ")
 \end{python}
 
 \end{frame}
