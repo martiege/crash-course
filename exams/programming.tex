@@ -1,0 +1,207 @@
+
+\begin{frame}
+    \frametitle{Programmering 2016 kont 2}
+
+    Du kan anta at alle funksjonene mottar gyldige argumenter (inn-verdier). Du kan benytte deg av funksjoner fra deloppgaver selv om du ikke har løst deloppgaven. 
+
+    I denne oppgaven skal man lage funksjoner for å lese en tekstfil med binærkode og gjøre om dette til tegn kodet i eget kodesett for tegn og bokstaver og lagre det til en tekstfil.
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Programmering 2016 kont 2a}
+
+    Lag funksjonen $load_bin$ som har en inn-parameter $filename$, som er navnet på fila som skal lastes inn. Funksjonen skal lese inn alt innholdet i fila og returnere innholdet som en tekststreng uten linjeskift eller mellomrom. Fila som det leses fra er en tekstfil bestående av binære tall (0 og 1). Hvis fila ikke eksisterer eller ikke kan åpnes, skal funksjonen returnere en tom streng samt skrive ut følgende feilmelding til skjerm: "Error: Could not open file <filename>", der <filename> er navnet på fila. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2016 kont 2a}
+
+\begin{python}
+def load_bin(filename):
+    binstring = ""
+    try:
+        f = open(filename, "r")
+
+        for line in f: 
+            binstring += line.strip()
+        
+        f.close()
+    except:
+        print("Error: Could not open file", filename)
+    return binstring
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Programmering 2016 kont 2b}
+
+    Lag funksjonen $bin_to_dec$ som har en inn-parameter $binary$, som er en tekststreng av ukjent størrelse bestående av binære tall (tekststreng med nuller og enere). Funksjonen skal returnere et heltall (dvs. i titallssystemet) som tilsvarer det binære tallet angitt med tekststrengen $binary$. Oppgaven \textbf{skal ikke løses} ved hjelp av innebygde funksjoner for å oversette binærtall til heltall. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2016 kont 2b}
+
+\begin{python}
+def bin_to_dec(binary): 
+    decimal = 0
+    reversed_binary = binary[::-1]
+    for i in range(len(reversed_binary)):
+        decimal += int(reversed_binary[i]) * 2**i 
+    return decimal
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Programmering 2016 kont 2c}
+
+    Lag funksjonen $dec_to_char$ som har en inn-parameter $dec$, som er et heltall med verdi mellom 0 og 31. Funksjonen skal returnere et tegn eller en bokstav avhengig av verdien av $dec$. 
+
+    \begin{itemize}
+        \item Hvis $dec$ har verdien 0 skal tegnet for " " (mellomrom) returneres
+        \item Hvis $dec$ har verdien 1 skal tegnet for "," (komma) returneres
+        \item Hvis $dec$ har verdien 2 skal tegnet for "." (punktum) returneres
+        \item Hvis $dec$ har en verdi mellom 3 og 31 skal en stor bokstav i det norske alfabetet returneres, der $dec=3$ gir bokstaven "A", $dec=4$ gir bokstaven "B", helt opp til $dec=31$ som gir bokstaven "Å". 
+        \item For alle andre verdier av $dec$ skal funksjonen returnere en tom streng. 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2016 kont 2c}
+
+    Antar denne konstanten eksisterer. 
+    $DTC = " ,.ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"$
+
+\begin{python}
+def dec_to_char(dec):
+    if dec < len(DTC): 
+        return DTC[dec]
+    else: 
+        return ""
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Programmering 2016 kont 2d}
+
+    Lag funksjonen $bin_to_txt$ som har en inn-parameter $binstring$, som er en tekststreng av ukjent lengde bestående av binære tall (tekststreng ed nuller og enere). Funksjonen skal returnere en tekststreng bestående av bokstaver og tegn som er kodet i henhold til oppgave 2c der hvert tegn er representert med 5 bit. Inn-parameteren $binstring$ vil alltid være et multiplum av fem siffer. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2016 kont 2d}
+
+\begin{python}
+def bin_to_txt(binstring): 
+    txt = ""
+    for i in range(0, len(binstring), 5):
+        decimal = bin_to_dec(binstring[i:i+5])
+        txt    += dec_to_char(decimal)
+    return txt
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2016 kont 2e}
+
+    Lag funksjonen $main$, uten parametere. Funksjonen skal gjøre følgende: 
+
+    \begin{enumerate}
+        \item Skrive ut teksten "Binary-to-text converter" til skjerm 
+        \item Spørre brukeren om navn på fil det skal lastes fra (tekstfil som inneholder binære tall) og ta vare på filnavnet i variabelen $b_file$. 
+        \item Oversette tekststrengen av binære tall til tekst med bokstaver og tegn og lagre innholdet i variabelen $txt$. 
+        \item Spørre brukeren om navnet på fil som resultatet skal lagres til og ta vare på filnavnet i variabelen $t_file$. 
+        \item Skrive innholdet av variabelen $txt$ til fila med filnavn angitt i variabelen $t_file$. 
+        \item Skrive ut til brukeren at: "$b_file$ has been converted and saved to $t_file$".
+    \end{enumerate}
+
+    Hvis funksjonen får problemer med å skrive til fila, skal følgende feilmelding skrives: "Error: Could not write to file $t_file$". 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2016 kont 2e}
+
+\begin{python}
+def main():
+    print("Binary-to-text converter")
+    b_file      = input("Name of binary file to load from: ")
+    b_string    = load_bin(b_file)
+    txt         = bin_to_txt(b_string)
+    t_file      = input("Name of text file to save to: ")
+    try:
+        f = open(t_file, "w")
+        f.write(txt)
+        f.close()
+        print(b_file, "has been converted and saved to", t_file)
+    except:
+        print("Error: Could not write to file", t_file)
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Programmering 2013 2a}
+
+    Lag funksjonen $yatzy$. Den skal ha 5 innparametere, kalt t1, t2, t3, t4 og t5. Innparamtrene representerer 5 tall mellom 1 og 6 (5 terninger). 
+
+    Funksjonen skal returnere ei liste som inneholder de 5 tallene i sortert rekkefølge, eller en feilmelding hvis en av tallene er større enn 6 eller mindre enn 1. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2013 2a}
+
+\begin{python}
+def yatzy(t1, t2, t3, t4, t5):
+    l = [t1, t2, t3, t4, t5]
+    for i in range(len(l)): 
+        for j in range(len(l) - i - 1):
+            if l[j] > 6 or l[j + 1] > 6: 
+                return "Ikke bruk input stoerre enn 6!"
+            if l[j] < 1 or l[j + 1] < 1: 
+                return "Ikke bruk input mindre enn 1!"
+
+            if l[j] > l[j + 1]: 
+                l[j], l[j + 1] = l[j + 1], l[j]
+    return l 
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Programmering 2013 2b}
+
+    Lag funksjonen $maxi_yatzy$. Den skal ta inn en liste med 5 eller 6 tall, og den skal returnere en skriftlig melding til brukeren som sier hvor mange terninger som ble kastet, hvilken verdi det var flest av, og hvor mange like det var av den verdien. Hvis det blir "uavgjort mellom to tall" brukes det høyeste tallet. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Programmering 2013 2b}
+
+\begin{python}
+    def maxi_yatzy(lst):
+    n = len(lst)
+    most_val = None
+    most_num = 0
+
+    for base_dice in range(1, 6 + 1):
+        num = 0
+        for dice in lst: 
+            if dice == base_dice: 
+                num += 1 
+        if num >= most_num: 
+            most_val = base_dice 
+            most_num = num 
+    return "Du kastet " + str(n) + " terninger og fikk flest " + str(most_val)  + " (" + str(most_num) + " like)."
+\end{python}
+
+\end{frame}

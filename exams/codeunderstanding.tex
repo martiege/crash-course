@@ -1,0 +1,211 @@
+
+\begin{frame}
+    \frametitle{Kodeforståelse}
+
+    Viktig å lese oppgaveteksten. 
+    
+    Ofte er det spørsmål om både hva som returneres for en bestemt input-verdi, i tillegg til å beskrive funksjonen med en setning. 
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Kodeforståelse}
+
+    Viktig å lese oppgaveteksten. 
+    
+    Ofte er det spørsmål om både hva som returneres for en bestemt input-verdi, i tillegg til å beskrive funksjonen med en setning. 
+
+    Det vil \textit{ikke} si at vi skriver hva som skjer, men heller hva som er poenget med funksjonen. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse}
+
+    \textbf{Feil svar:} Funksjonen setter \textit{r} = 1, og så lenge \textit{x} er større eller lik 1 ganges \textit{r} med \textit{x}, og \textit{x} minker med 1. 
+
+\begin{python}
+def f(x): 
+    r = 1
+    while x >= 1: 
+        r *= x
+        x -= 1
+    return r
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse}
+
+    \textbf{Riktig(ere) svar:} Funksjonen beregner verdien $x!$, x fakultet.
+
+\begin{python}
+def f(x): 
+    r = 1
+    while x >= 1: 
+        r *= x
+        x -= 1
+    return r
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse 2016 2d}
+
+    Hva blir skrevet ut på skjermen hvis koden vist under blir kjørt? 
+
+    Forklar med en setning hva funksjonen $f$ gjør
+
+\begin{python}
+def f(x):
+    y = 0
+    while x > 0:
+        y = y + x % 10
+        x = int( x / 10 )
+    if y >= 10:
+        y = f( y )
+    return y
+
+print( f(32145) )
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kodeforståelse 2016 kont 4b}
+
+    6
+
+    $f$ regner ut den rekursive tverrsummen tallet som den får inn som parameter, dvs. fortsetter å ta tverrsum helt til vi får et ensifret tall. 
+
+    Tverrsummen av 32145 blir 15, tverrsummen av 15 blir deretter 6. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse 2016 kont 4b}
+
+    Hva returneres hvis man kaller $f([[3, 5], [2, 4], [1, 3]])$ med koden nedenfor? 
+
+    Forklar med \underline{en setning} hva funksjonen $f()$ gjør? 
+
+\begin{python}
+def f(b): 
+    c=len(b[0])
+    d=len(b)
+    g = [[0 for row in range(d)]
+        for col in range(c)]
+    for e in range(0, c):
+        for f in range(0, d): 
+            g[e][f] = b[f][e]
+    return g
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kodeforståelse 2016 kont 4b}
+
+    [[3, 2, 1], [5, 4, 3]]
+
+    Evt. ingenting ettersom det er feil med innrykk i oppgaveteksten. 
+    Begge svar gir full pott!
+
+    Funksjonen transponerer en matrise. 
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse 2017 2a}
+
+    Funksjonen $bin_search$ er ment til å skulle utføre binærsøk, men resulterer i feilmeldingen \textit{"IndexError: list index out of range"}. 
+
+    I hvilken linje er feilen? 
+
+    Hva skulle egentlig stått på den linjen for at funksjonen skal virke etter sin hensikt? 
+
+\begin{python}
+def bin_search(liste, verdi, imin, imax): 
+    if (imax < imin): 
+        return False
+    else: 
+        imid = (imin + imax)
+        if verdi < liste[imid]: 
+            return bin_search(liste, verdi, imin, imid-1)
+        elif verdi > liste[imid]: 
+            return bin_search(liste, verdi, imid+1, imax)
+        else: 
+            return imid
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kodeforståelse 2017 2a}
+
+    Linje 5
+
+    $imid = (imid + imax) / 2$
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse 2018 sett 1 2a}
+
+    Hva returneres ved funksjonskallet under? 
+    $myst(((True and False) or (False and True)), ((False or True) and (not(not True))))$
+
+\begin{python}
+def myst(val1, val2):
+    if (val1 and val2):
+        return 1 
+    elif (val1 and not val2): 
+        return 2
+    elif (not val1 and val2): 
+        return 3 
+    else: 
+        return 4
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kodeforståelse 2017 2a}
+
+    3
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Kodeforståelse 2018 kont 2e og f}
+
+    Hva blir skrevet ut til skjerm når du kjører programmet vist under?
+
+    $z = ((2, 0, 11, 8, 5), (14, 17, 13, 8, 0))$
+    $print(myst3(z))$
+
+    Beskriv med en setning hva koden i oppgave 2e gjør. 
+    
+\begin{python}
+def myst3(a): 
+	s  = ''
+	for r in a: 
+		for c in r: 
+			s += chr(ord('A') + c)
+	return s
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Kodeforståelse 2018 kont 2e og f}
+
+    \textbf{CALIFORNIA}
+    Store bokstaver (pga. $ord('A')$) og ingen fnutter (pga. printing)
+
+    Henter ut ett og ett tall fra et tuppel av tupler, og lager en sammenhengende tekst av store bokstaver hvor c angir hvor langt unna hver bokstav er fra A i alfabetet (ASCII- tabellen).
+
+\end{frame}

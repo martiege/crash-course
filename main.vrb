@@ -1,19 +1,19 @@
-\frametitle{Unntak}
-
-    Eksempel
+\frametitle{Programmering 2013 2b}
 
 \begin{python}
-try:
-    number = int(input("Write a number: ")) # runs always, but may crash
-except ValueError as error: # specifics assigned to variable error
-    # runs specifically if there is a ValueError
-    print(error) # prints the specifics of this error
-    print("Not a number")
-except: # runs for any other exception
-    print("Some other mistake")
-else: # runs if no crash
-    print("The number is:", number)
-finally: # runs always
-    print("Done")
+    def maxi_yatzy(lst):
+    n = len(lst)
+    most_val = None
+    most_num = 0
+
+    for base_dice in range(1, 6 + 1):
+        num = 0
+        for dice in lst:
+            if dice == base_dice:
+                num += 1
+        if num >= most_num:
+            most_val = base_dice
+            most_num = num
+    return "Du kastet " + str(n) + " terninger og fikk flest " + str(most_val)  + " (" + str(most_num) + " like)."
 \end{python}
 
